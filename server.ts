@@ -15,6 +15,12 @@ app.get('/', (req, res) => {
 
 socketServer.on('connection', (socket) => {
   console.log(`Socket ${socket.id} has connected`);
+
+  socket.on('chat message', (msg) => {
+    console.log(`New message from ${socket.id}: ${msg}`);
+    socketServer.emit('chat message', msg);
+  })
+
   socket.on('disconnect', () => {
     console.log(`Socket ${socket.id} has disconnected`)
   })
