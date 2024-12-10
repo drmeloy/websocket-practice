@@ -25,6 +25,10 @@ socketServer.on('connection', (socket) => {
     socketServer.emit('chat message', msg);
   })
 
+  socket.on('test', (data) => {
+    console.log(data)
+  })
+
   socket.on('disconnect', () => {
     console.log(`Socket ${socket.id} has disconnected`)
   })

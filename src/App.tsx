@@ -34,6 +34,8 @@ function App() {
     socket.disconnect();
   }
 
+  const emitEvent = () => socket.emit('test', { data: true })
+
 
   return (
     <>
@@ -47,7 +49,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => isConnected ? disconnect() : connect()}>
+        <button onClick={emitEvent}>
           count is {count}
         </button>
         <p>
