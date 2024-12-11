@@ -3,6 +3,7 @@ import { createServer } from 'node:http';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { Server } from 'socket.io';
+import { useManageGameState } from './useManageGameState';
 
 const app = express();
 const httpServer = createServer(app);
@@ -20,12 +21,7 @@ app.get('/', (req, res) => {
 socketServer.on('connection', (socket) => {
   console.log(`Socket ${socket.id} has connected`);
 
-  socket.on('chat message', (msg) => {
-    console.log(`New message from ${socket.id}: ${msg}`);
-    socketServer.emit('chat message', msg);
-  })
-
-  socket.on('test', (data) => {
+  socket.on('click', (data) => {
     console.log(data)
   })
 
