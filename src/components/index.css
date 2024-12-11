@@ -1,0 +1,14 @@
+.player-board {
+  background-color: white;
+  height: 500px;
+  width: 250px;
+  border: 3px solid black;
+}
+
+.reaction-square {
+  background-color: green;
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  margin-top: 100%;
+}
